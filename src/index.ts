@@ -1,5 +1,7 @@
 import dotenv from "dotenv";
-dotenv.config();
+if (process.env.NODE_ENV === "development") {
+  dotenv.config();
+}
 
 import express from "express";
 import morgan from "morgan";
@@ -26,3 +28,5 @@ if (process.env.NODE_ENV === "development") {
     console.log(`Listening on port ${port}`);
   });
 }
+
+export default app;
