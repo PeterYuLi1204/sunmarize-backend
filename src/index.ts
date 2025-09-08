@@ -17,8 +17,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Allow all origins for testing
-app.use(cors());
-app.options("*", cors());
+app.use(cors({ origin: "*" }));
 
 app.use(express.json());
 
