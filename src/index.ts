@@ -4,6 +4,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 import express from "express";
+import cors from "cors";
 import morgan from "morgan";
 
 import completionRouter from "./routes/completion";
@@ -14,6 +15,10 @@ const port = process.env.PORT || 4321;
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
+
+// Allow all origins for testing
+app.use(cors());
+app.options("*", cors());
 
 app.use(express.json());
 
