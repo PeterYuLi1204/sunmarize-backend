@@ -47,6 +47,9 @@ completionRouter.post("/gemini", async (req, res) => {
     contents: req.body.text,
     config: {
       systemInstruction: PROMPT,
+      thinkingConfig: {
+        thinkingBudget: 0,
+      },
     },
   });
 
